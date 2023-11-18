@@ -1,0 +1,165 @@
+.dropdown-content {
+    display: flex; /* 默认隐藏 */
+    position: absolute;
+    background-color: #fff; /* 背景颜色 */
+    border: 1px solid #ccc; /* 边框 */
+    border-radius: 4px; /* 圆角 */
+    width: 200px; /* 宽度 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+    z-index: 1; /* 确保在其他元素上方显示 */
+    right: 0; /* 调整右边距 */
+  }
+  
+  .dropdown-button {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+  }
+.srprofpage {
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    min-width: 400px;
+    font-family: Apple SD Gothic Neo,arial,sans-serif;
+    color: #000;
+    background: #fff;
+    display: block;
+    flex-direction: column;
+}
+.sp-header{
+    min-width: calc(146px + 2%);
+    width: 100%;
+    display: flex;
+    max-height: 150px;
+    align-items: center;
+    box-sizing: border-box;
+    height: calc(100px + (150 - 100) * ((100vw - 320px) / (768 - 320)));
+}
+.sp-logo{
+    width: 30%;
+    max-height: 150px;
+    height: auto;
+    height: calc(100px + (150 - 100) * ((100vw - 320px) / (768 - 320)));
+    display: flex;
+    /*justify-content: center; 삭제예정*/
+    align-items: center;
+    box-sizing: border-box;
+} 
+.sp-logoimg{
+    max-width: 250px;
+    width: 90%;
+    height: auto;
+    margin-left: 3%;
+}
+
+.sp-title{
+    width: 40%;
+}
+.sp-title > span{
+    font-size: 40px;
+    padding-top: 10px;
+    display: flex;
+    vertical-align: middle;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.sg-login{
+    width: 30%;
+    float: right;
+}
+
+.login{
+    float: right;
+    background: #fff;
+    border: 2px solid #000;
+    margin-right: 3%;
+    max-width: 98px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 7px; 
+    box-sizing: border-box;
+    width: calc(85px + (98 - 85) * ((100vw - 320px) / (768 - 320))); /* 화면 크기에 따라 높이 조절 */
+    cursor: pointer;
+}
+.login > span{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    font-family: Google Sans,Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    vertical-align: middle;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.login:hover {
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5), 3px 0px 3px rgba(0, 0, 0, 0.5);
+}
+.sp-line{
+    margin: 0 auto;
+    width: 99%;
+    height: 2px; /* 선의 높이 조절 */
+    background-color: black; /* 검정색 설정 */
+}
+.sp-prof{
+    width: 100%;
+    margin-top: 25px;
+    height: 70px;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    display: flex;
+}
+.prof_name{
+    margin: 0;
+    width: 30%;
+    font-weight: 700;
+    text-align: center;
+    float: left;
+    font-size: 30px;
+}
+
+.sp-contents{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.sp-info1, .sp-info2 {
+    width: 50%;
+    float: left;
+}
+
+.sp-info3 {
+    width: 100%;
+    float: left;
+}
+
+.sp-info1 > p, .sp-info2 > p, .sp-info3 > p{
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.sp-info1 > span, .sp-info2 > span, .sp-info3 > span {
+    font-weight: 400;
+    font-size: 18px;
+}
+

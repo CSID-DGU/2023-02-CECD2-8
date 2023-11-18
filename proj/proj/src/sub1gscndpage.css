@@ -1,0 +1,178 @@
+.sub1-gscndpage {
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: Apple SD Gothic Neo,arial,sans-serif;
+    color: #202124;
+    background: #fff;
+    box-sizing: border-box;
+    text-align: center;
+    align-items: center;
+}
+.sub1-gscnd-box {
+    width: 100%; /* 너비를 100%로 설정하여 화면 크기에 맞춤 */
+    max-width: 700px; /* 최대 너비는 650px로 제한 */
+    min-height: 100%;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 7px;
+    border: 2px solid #000;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
+    box-sizing: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sub1-gscnd-logo{
+    margin: 0 auto;
+    height: 65px;
+    justify-content: center;
+    box-sizing: inherit;
+}
+.sub1-gscnd-logoimg{
+    width: 150px;
+    height: 65px;
+}
+.sub1-login-h1{
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 30px;
+    font-size:30px;
+    font-weight: 500;
+}
+.sub1-gscnd-line{
+    margin: 0 auto;
+    width: 60%;
+    height: 2px; /* 선의 높이 조절 */
+    background-color: black; /* 검정색 설정 */
+}
+.sub1-select-form{
+    width: 100%;
+    padding-top: 25px;
+    justify-content: center;
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.sub1-select-form2{
+    width: 100%;
+    justify-content: center;
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.sub1-select-major, .sub1-select-location, .sub1-select-ranking, 
+.sub1-select-expenses, .sub1-select-gre{
+    margin-bottom: 20px;
+    display: flex; /* 내부 요소들을 가로로 배치 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+.sub1-select-major span, .sub1-select-location span, 
+.sub1-select-ranking span, .sub1-select-expenses span,
+.sub1-select-gre span{
+    font-size: 20px;
+    font-weight: 600;
+    width: 25%; /* span 요소가 50%의 너비를 가지도록 설정 */
+    text-align: left; /* span 요소를 오른쪽으로 정렬 */
+    padding-left: 10px; /* span 요소 오른쪽에 여백 추가 */
+}
+.sub1-select-major select, .sub1-select-location select, 
+.sub1-select-ranking select, .sub1-select-expenses select,
+.sub1-select-gre select {
+    width: 53%; /* select 요소가 50%의 너비를 가지도록 설정 */
+    height: 35px;
+    font-size: 20px;
+    border-radius: 7px;
+    border-width: 2px;
+    border-color: black;
+    background-color: #fff;
+}
+.lab1-Priority {
+    width: 20%;
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    text-align: left; /* span의 텍스트 정렬 방향 설정 */
+}
+.lab1-Priority span {
+    width: 70%;
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 10px;
+}
+.lab1-Priority input {
+    width: 30%; /* 변경된 너비 */
+    height: 35px;
+    font-size: 20px;
+    border-radius: 7px;
+    border-width: 2px;
+    border-color: black;
+    box-sizing: border-box; /* 박스 모델 변경 */
+    margin:0px; /* 원하는 간격으로 조절 */
+}
+
+.sub1-input-form1, .sub1-input-form2 {
+    width: 100%;
+    justify-content: center;
+    align-items: center; /* 세로 중앙 정렬 */
+}
+.sub1-input-form1 div, .sub1-input-form2 div{
+    margin-bottom: 20px;
+    display: flex; /* 내부 요소들을 가로로 배치 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+.sub1-input-form1 span, .sub1-input-form2 span {
+    font-size: 20px;
+    font-weight: 600;
+    width: 25%; /* span 요소가 50%의 너비를 가지도록 설정 */
+    text-align: left; /* span 요소를 오른쪽으로 정렬 */
+    padding-left: 10px; /* span 요소 오른쪽에 여백 추가 */
+}
+.sub1-input-form1 input, .sub1-input-form2 input {
+    width: 52%; /* select 요소가 50%의 너비를 가지도록 설정 */
+    height: 30px;
+    font-size: 20px;
+    margin-bottom:0px;
+    border-radius: 7px;
+    border-width: 2px;
+    border-color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .sub1-select-form span, .sub1-select-form select {
+        font-size: 17px;
+    }
+    .sub1-input-form1 span,.sub1-input-form2 span, .sub1-input-form1 input, .sub1-input-form2 input {
+        font-size: 17px;
+    }
+    
+}
+
+.select-button {
+    margin: 0 auto;
+    margin: 20px 0;
+    width: 85%;
+    height: 60px;
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 7px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.select-button-text{
+    text-align: center;
+    font-size: 30px;
+    color: #000;
+}
+.select-button:hover {
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5), 3px 0px 3px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
