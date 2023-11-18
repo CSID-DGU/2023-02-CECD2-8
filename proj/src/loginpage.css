@@ -1,0 +1,127 @@
+.loginpage {
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: Apple SD Gothic Neo,arial,sans-serif;
+    color: #202124;
+    background: #fff;
+    box-sizing: border-box;
+    text-align: center;
+    align-items: center;
+}
+.login-header {
+    display: flex;
+    padding: 6px;
+    max-height: 200px;
+    float: right;
+    padding-left: 32px;
+    align-items: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    height: calc(30px + (200 - 30) * ((100vw - 320px) / (768 - 320)));
+  }
+.login-box{
+    width: 450px;
+    min-height: 430px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 7px;
+    border: 2px solid #000;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
+    box-sizing: inherit;
+    /*display: inline-block;*/
+}
+.login-logo{
+    margin: 0 auto;
+    height: 65px;
+    justify-content: center;
+    box-sizing: inherit;
+}
+.login-logoimg{
+    width: 150px;
+    height: 65px;
+}
+.login-h1{
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 30px;
+    font-size:30px;
+    font-weight: 500;
+}
+.login-line{
+    margin: 0 auto;
+    width: 60%;
+    height: 2px; /* 선의 높이 조절 */
+    background-color: black; /* 검정색 설정 */
+}
+.login-form{
+    width: 90%;
+    height: 170px;
+    font-size: 20px;
+    border-radius: 7px;
+    box-sizing: inherit;
+    display: inline-block;
+}
+input{
+    width: 90%;
+    height: 40px;
+    font-size: 20px;
+   
+    /* margin-bottom: 20px; */
+    border-radius: 7px;
+}
+.login-id, .login-pw{
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.login-su {
+    width: 90%;
+    display: block;
+    float: right
+}
+.login-signup {
+    float: right;
+    margin-top: 5px;
+    margin-right: 20px;
+    font-size: 15px;
+    color: #4f4f4f;
+}
+.login-signup:hover {
+    font-weight: bold;
+}
+.login-form2{
+    width: 90%;
+    height: 90px;
+    font-size: 20px;
+    margin-top: 15px;
+    border-radius: 7px;
+    box-sizing: inherit;
+    display: inline-block;
+}
+.login-login-text{
+    margin: 0 auto;
+    width: 90%;
+    height: 60px;
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 7px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    background-color: #fff;
+}
+.login-login-text:hover {
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.5), 3px 0px 3px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+

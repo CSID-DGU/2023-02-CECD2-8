@@ -1,0 +1,80 @@
+.serviceinfopage{
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    min-width: 400px;
+    font-family: Apple SD Gothic Neo,arial,sans-serif;
+    color: #000;
+    background: #fff;
+    display: block;
+    flex-direction: column;
+}
+.si-title{
+    margin: 0 auto;
+    width: 50%;
+    float: left;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.si-title-text{
+    font-size: 50px;
+    font-weight: 600;
+}
+.si-service{
+    width: 90%;
+}
+/* 화면 크기가 768px 이하일 때 글씨 크기 조절 */
+@media screen and (max-width: 768px) {
+    .si-title-text {
+        font-size: 40px; /* 화면이 작아질 때의 글씨 크기 */
+    }
+}
+
+/* 화면 크기가 480px 이하일 때 글씨 크기 추가로 조절 */
+@media screen and (max-width: 500px) {
+    .si-title-text {
+        font-size: 35px; /* 더 작은 화면 크기에서의 글씨 크기 */
+    }
+}
+
+.si-service{
+    width: 100%;
+    height: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.si-service1, .si-service2, .si-service3 {
+    width: 100%;
+    margin: 0 auto; /* Center horizontally by setting left and right margins to auto */
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    height: auto;
+    /*border-top: 2px solid black;
+    border-bottom: 2px solid black;*/
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    flex-direction: column;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.si-service h2,
+.si-service p {
+    margin: 10px 0px; /* 세로로 배치되도록 변경 */
+}
+.si-service p {
+    font-size: 18px;
+    font-weight: 500;
+}
