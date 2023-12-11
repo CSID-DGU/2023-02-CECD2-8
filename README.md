@@ -2,11 +2,11 @@
 미국의 컴퓨터과학, 컴퓨터공학 대학원을 검색하거나 사용자가 원하는 조건에 맞게 추천하는 웹 서비스입니다.
 
 ### 개발환경
-- "Node.js 20.9.0"
-- "React"
-- "MySQL"
-- "Visual Studio Code"
-- "aws"
+- `Node.js 20.9.0`
+- `React`
+- `MySQL`
+- `Visual Studio Code`
+- `aws`
 
 ### 개발 기간
 2023년 9월 ~ 12월
