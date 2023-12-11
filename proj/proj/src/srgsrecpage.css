@@ -36,7 +36,8 @@
 }
 .sg-header{
     min-width: calc(146px + 2%);
-    width: 100%;
+    margin: 0 auto;
+    width: 99%;
     display: flex;
     max-height: 150px;
     align-items: center;
@@ -44,7 +45,7 @@
     height: calc(100px + (150 - 100) * ((100vw - 320px) / (768 - 320)));
 }
 .sg-logo{
-    width: 30%;
+    width: 33%;
     max-height: 150px;
     height: auto;
     height: calc(100px + (150 - 100) * ((100vw - 320px) / (768 - 320)));
@@ -59,9 +60,8 @@
     height: auto;
     margin-left: 3%;
 }
-
 .sg-title{
-    width: 40%;
+    width: 33%;
 }
 .sg-title > span{
     font-size: 40px;
@@ -73,11 +73,38 @@
     align-items: center;
 }
 
-.sg-login{
-    width: 30%;
+.sg-user-dropdown{
+    width: 33%;
     float: right;
 }
+.menu-icon {
+    width: 30px;
+    height: 25px;
+    margin-right: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    float: right;
+  }
+  .menu-icon .bar {
+    width: 100%;
+    height: 4px;
+    border-radius: 10px; 
+    background-color: #333; /* 바의 색상 설정 */
+    transition: box-shadow 0.2s ease; /* 그림자 효과에 트랜지션 적용 */
+  }
+  
+  .menu-icon:hover .bar {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); /* 커서를 올렸을 때 바의 아래 부분에 그림자 효과 설정 */
+  }
 
+
+.sg-login{
+    width: 33%;
+    float: right;
+}
 .login{
     float: right;
     background: #fff;
@@ -126,32 +153,24 @@
 }
 .title{
     width: 100%;
-}
-
-.university_logo{
-    margin: 0;
-    width: 40%;
+    display: flex;
     text-align: center;
-    float: left;
-    font-size: 30px;
-    font-weight: 700;
-}
-
-.university_logo > img{
-    width: 100px;
-    float: right;
+    justify-content: center;
+    align-items: center;
 }
 .university_name{
     margin: 0;
     width: 60%;
     text-align: center;
     float: left;
-    font-size: 15px;
+    font-size: 23px;
     font-weight: 700;
 }
 .sg-contents{
     width: 90%;
+    height: auto;
     margin: 0 auto;
+    display: block;
 }
 .sg-basic-info{
     width: 100%;
@@ -160,21 +179,28 @@
     margin-top: 25px;
     margin-bottom: 0px;
 }
-
 .sg-major1{
+    padding-bottom: 100px;
+}
+.sg-major1 > h2{
     width: 100%;
 }
-.sg-msub1, .sg-msub2{
-    width: 50%;
-    float: left;
+.sg-major1{
+    display: flex;
+    flex-wrap: wrap;
 }
-.sg-basic-info > p,  .sg-msub1> p, .sg-msub2 > p{
+.sg-msub1, .sg-msub2{
+    box-sizing: border-box;
+    width: 50%;
+    
+}
+.sg-bi > p,  .sg-msub1> p, .sg-msub2 > p{
     font-weight: 600;
     font-size: 20px;
     margin-top: 25px;
     margin-bottom: 10px;
 }
-.sg-basic-info > span, .sg-msub1> span, .sg-msub2 > span{
+.sg-bi > span, .sg-msub1> span, .sg-msub2 > span{
     font-weight: 400;
     font-size: 18px;
 }

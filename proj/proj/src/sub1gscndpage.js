@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from './logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import "./sub1gscndpage.css";
+import queryString from 'query-string';
 
 function Sub1gscndpage() {
 
@@ -9,19 +10,37 @@ function Sub1gscndpage() {
   const [selectedMajor, setSelectedMajor] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   const [selectedField, setSelectedField] = useState('');
+  //연구분야, 위치, 랭킹, 비용, 어학성적들, 우선순위들
+  const [formData, setFormData] = useState({
+    field: '',
+    location: '',
+    rank: '',
+    cost: '',
+    gpa: '',
+    gre: '',
+    TOEFL: '',
+    IELTS: '',
+    PTEAcademic: '',
+    lab1_location_priority: '',
+    lab1_ranking_priority: '',
+    lab1_expenses_priority: ''
+  });
 
-  const handleRecommendation = () => {
-    if (selectedField === 'Graduateschool') {
-      // Navigate to a.js
-      navigate('/gsrecpage');
-    } else if (selectedField === 'professor') {
-      // Navigate to b.js
-      navigate('/gprecpage');
-    } else if (selectedField === 'gp') {
-      // Navigate to b.js
-      navigate('/grrecpage');
-    }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+    console.log(formData);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const queryParams = new URLSearchParams(formData).toString();
+    navigate(`/gsrecpage`, {state:{queryParams}});
+  };
+
 
   return (
     <div className="sub1-gscndpage">
@@ -34,7 +53,7 @@ function Sub1gscndpage() {
         <div className='sub1-select-form'>
           <div className="sub1-select-major">
             <span>연구하고 싶은 분야> </span>
-            <select className="options" required>
+            <select className="research" name="field" onChange={handleChange} required>
               <option disabled selected hidden>전공분야선택(필수)</option>
               <option value="SIGACCESS">SIGACCESS(접근 가능한 컴퓨팅)</option>
               <option value="SIGACT">SIGACT(알고리즘 및 계산 이론)</option>
@@ -78,7 +97,7 @@ function Sub1gscndpage() {
           </div>
           <div className="sub1-select-location">
             <span>위치> </span>
-            <select className="options" >
+            <select className="options" name="location" onChange={handleChange}>
               <option disabled selected hidden>위치선택(선택)</option>
               <optgroup label="Western" >
                 <option value="Arizona" ㅡ>Arizona</option>
@@ -142,14 +161,10 @@ function Sub1gscndpage() {
                 <option value="Puerto Rico">Puerto Rico</option>
               </optgroup>
             </select>
-            <div className='lab1-Priority'>
-              <span>우선순위> </span> 
-              <input type="number" name="lab1-location-priority" />
-            </div>
           </div>
           <div className="sub1-select-ranking">
             <span>순위> </span>
-            <select className="options">
+            <select className="options" name="rank" onChange={handleChange}>
               <option disabled selected hidden>순위선택(선택)</option>
                 <option value="10">10위 이내</option>
                 <option value="20">20위 이내</option>
@@ -159,36 +174,42 @@ function Sub1gscndpage() {
             </select>
             <div className='lab1-Priority'>
               <span>우선순위> </span> 
-              <input type="number" name="lab1-ranking-priority" />
+              <input type="number"
+                name="lab1_ranking_priority"
+                onChange={handleChange}
+              />
             </div>
         </div>
           <div className="sub1-select-expenses">
             <span>비용> </span>
-            <select className="options">
+            <select className="options" name="cost" onChange={handleChange}>
               <option disabled selected hidden>비용선택(선택)</option>
-                <option value="30,000">30,000달러 이하</option>
-                <option value="50,000">30,000달러 ~ 50,000달러</option>
-                <option value="70,000">50,000달러 ~ 70,000달러</option>
-                <option value="90,000">70,000달러 ~ 90,000달러</option>
-                <option value="90,000">90,000달러 이상</option>
+                <option value="30000">30,000달러 이하</option>
+                <option value="30000-50000">30,000달러 ~ 50,000달러</option>
+                <option value="50000-70000">50,000달러 ~ 70,000달러</option>
+                <option value="70000-90000">70,000달러 ~ 90,000달러</option>
+                <option value="90000">90,000달러 이상</option>
             </select>
             <div className='lab1-Priority'>
               <span>우선순위> </span> 
-              <input type="number" name="lab1-expenses-priority"/>
+              <input type="number"
+                name="lab1_expenses_priority"
+                onChange={handleChange}
+              />
             </div>
         </div>
         </div>
         <div className="sub1-input-form1">
           <div className="sub1-input-gpa">
             <span>GPA> </span>
-            <input type="number" name="gpa" placeholder="GPA 점수(선택)" className="sub1-gpa" step="0.01"/>
+            <input type="number" name="gpa" onChange={handleChange} placeholder="GPA 점수(선택)" className="sub1-gpa" step="0.01"/>
           </div>
         </div>
 
         <div className='sub1-select-form2'>
           <div className="sub1-select-gre">
             <span>GRE> </span>
-            <select className="options">
+            <select className="options" name="gre" onChange={handleChange}>
               <option disabled selected hidden>GRE선택(선택)</option>
                 <option value="Required">제출필요</option>
                 <option value="Not Required">제출불필요</option>
@@ -200,22 +221,34 @@ function Sub1gscndpage() {
         <div className="sub1-input-form2">
           <div className="sub1-input-toefl">
             <span>TOEFL> </span>
-            <input type="number" name="TOEFL" placeholder="TOEFL 점수(선택)" className="sub1-toefl" step="0.01"/>
+            <input type="number" name="TOEFL" onChange={handleChange} placeholder="TOEFL 점수(선택)" className="sub1-toefl" step="0.01"/>
           </div>
           <div className="sub1-input-ielts">
             <span>IELTS> </span>
-            <input type="number" name="IELTS" placeholder="IELTS 점수(선택)" className="sub1-ielts" step="0.01"/>
+            <input type="number" name="IELTS" onChange={handleChange} placeholder="IELTS 점수(선택)" className="sub1-ielts" step="0.01"/>
           </div>
           <div className="sub1-input-ielts">
             <span>PTEAcademic> </span>
-            <input type="number" name="PTEAcademic" placeholder="PTEAcademic 점수(선택)" className="sub1-ptea" step="0.01"/>
+            <input type="number" name="PTEAcademic" onChange={handleChange} placeholder="PTEAcademic 점수(선택)" className="sub1-ptea" step="0.01"/>
           </div>
         </div>
 
-        <Link to='/gsrecpage' className="select-button" onClick={handleRecommendation}>
+        <Link to='/gsrecpage' className="select-button" onClick={(e) => {
+  // research 속성 선택 여부 확인
+  const selectedResearch = document.querySelector('.research');
+  if (selectedResearch.selectedIndex !== 0) {
+    // 선택된 경우에만 handleSubmit 실행
+    handleSubmit(e);
+  } else {
+    // 선택되지 않은 경우에는 실행하지 않음
+    e.preventDefault();
+    // 사용자에게 메시지 표시 또는 다른 조치를 취할 수 있음
+    console.log('교수 연차를 선택하세요.');
+  }
+}}>
         <span className="select-button-text">추천 결과 보기</span>
         </Link>
-          
+         
       </div>
         
         

@@ -15,7 +15,7 @@ function Srprofpage() {
   
   const fetchDataFromDatabase = (dataToQuery) => {
     // 使用 dataToQuery 作为查询参数进行 GET 请求
-    fetch(`http://43.202.99.112/prosearch.php?query=${dataToQuery}`)
+    fetch(`http://3.38.161.125/prosearch.php?query=${dataToQuery}`)
       .then((response) => response.json())
       .then((data) => {
         setSearchResults(data); // 更新查询结果的状态
@@ -77,7 +77,7 @@ function Srprofpage() {
         </div>
 
         {isLoggedIn ? (
-          <div className="user-dropdown">
+          <div className="sp-user-dropdown">
             <div className="menu-icon" onClick={toggleDropdown}>
               <div className="bar"></div>
               <div className="bar"></div>
@@ -113,31 +113,35 @@ function Srprofpage() {
       {searchResults.map((pro,index)=>(
         <><div className="sp-prof">
           <div className="prof_name">{pro.ProfessorName}</div>
-        </div><div className="sp-contents">
+        </div>
+        <div className="sp-contents">
             <div className="sp-info1">
-              <p>소속 대학명>{pro.UniversityName}</p>
-              <span>website>{pro.UniversitySite}</span>
+              <p>소속 대학명></p>
+              <span>{pro.UniversityName}</span>
+              <p>대학 사이트></p>
+              <span><a href={pro.UniversitySite}>{pro.UniversitySite}</a></span>
               <p>메일></p>
               <span>{pro.Email}</span>
             </div>
             <div className="sp-info2">
+              <p>교수 사이트></p>
+              <span><a href={pro.SiteLink}>{pro.SiteLink}</a></span>
               <p>직책></p>
               <span>{pro.Title}</span>
               <p>전화번호></p>
               <span>{pro.PhoneNumber}</span>
             </div>
             <div className="sp-info3">
-              <p>교수 사이트></p>
-              <span>{pro.SiteLink}</span>
               <p>연구분야></p>
               <span>{pro.ResearchArea}</span>
               <p>교수소개></p>
               <span>{pro.ResearchDescription}</span>
             </div>
-          </div></>
-
+          </div>
+          
+          </>
+       
       ))}
-      
     </div>
   );
 }

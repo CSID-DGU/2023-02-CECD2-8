@@ -13,6 +13,7 @@ import Gscndpage from './gscndpage';
 import Cummunitypage from './cummunitypage';
 import Univinfopage from './univinfopage';
 import Profinfopage from './profinfopage';
+import Labinfopage from './labinfopage';
 
 import Sub1gscndpage from './sub1gscndpage';
 import Sub2gscndpage from './sub2gscndpage';
@@ -21,6 +22,9 @@ import Sub3gscndpage from './sub3gscndpage';
 import Gsrecpage from './gsrecpage';
 import Gsprecpage from './gsprecpage';
 import Gprecpage from './gprecpage';
+
+import Userinfo from './userinfo';
+import ChangePage from './changePage';
 
 
 import reportWebVitals from './reportWebVitals';
@@ -43,6 +47,7 @@ ReactDOM.render(
       <Route path="/cummunitypage" element={<Cummunitypage />} />
       <Route path="/univinfopage" element={<Univinfopage />} />
       <Route path="/profinfopage" element={<Profinfopage />} />
+      <Route path="/labinfopage" element={<Labinfopage />} />
 
       <Route path="/sub1gscndpage" element={<Sub1gscndpage />} />
       <Route path="/sub2gscndpage" element={<Sub2gscndpage />} />
@@ -51,6 +56,9 @@ ReactDOM.render(
       <Route path="/gsrecpage" element={<Gsrecpage />} />
       <Route path="/gsprecpage" element={<Gsprecpage />} />
       <Route path="/gprecpage" element={<Gprecpage />} />
+
+      <Route path="/changePage" element={<ChangePage />} />
+      <Route path="/userinfo" element={<Userinfo />} />
 
 
     </Routes>

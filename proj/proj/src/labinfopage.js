@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.png";
 import Search from "./search.png";
 import { Link, useNavigate } from "react-router-dom";
-import './univinfopage.css';
+import './labinfopage.css';
 
-function Univinfopage() {
+function Labinfopage() {
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [universities, setUniversities] = useState([]);
+  const [labsities, setLabsities] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 50;
   const[userID, setuserID] = useState('');
@@ -21,9 +21,9 @@ function Univinfopage() {
 
     const fetchData = async () => {
       try {
-        const response = await fetch('http://3.38.161.125/universitysearch.php');
+        const response = await fetch('http://3.38.161.125/labinfosearch.php');
         const data = await response.json();
-        setUniversities(data);
+        setLabsities(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -47,28 +47,28 @@ function Univinfopage() {
       navigate('/userinfo');
   }
 
-  const toPage = (university) => {
-    navigate('/srgsrecpage', { state: { resultData: university } });
+  const toPage = (lab) => {
+    navigate('/srlabpage', { state: { resultData: lab } });
   };
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = universities.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = labsities.slice(indexOfFirstItem, indexOfLastItem);
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(universities.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(labsities.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
-    <div className="univinfopage">
-      <div className="univinfo-header">
-        <Link to='/' className="univinfo-logo" style={{ textDecoration: "none" }} onClick={() => navigate('/mainpage')}>
-          <img src={logo} className="univinfo-logoimg" alt="logo" />
+    <div className="labinfopage">
+      <div className="labinfo-header">
+        <Link to='/' className="labinfo-logo" style={{ textDecoration: "none" }} onClick={() => navigate('/mainpage')}>
+          <img src={logo} className="labinfo-logoimg" alt="logo" />
         </Link>
 
-        <div className='univinfo-title'>
-            <span className='univinfo-title-text'> 대학원 정보 </span>
+        <div className='labinfo-title'>
+            <span className='labinfo-title-text'> 연구실 정보 </span>
         </div>
         {isLoggedIn ? (
           <div className="sg-user-dropdown">
@@ -81,7 +81,7 @@ function Univinfopage() {
               <div className="dropdown-content">
                 <button className="dropdown-button" onClick={toUserinfo}>회원정보</button>
                 <button className="dropdown-button">내 게시물</button>
-                <button className="dropdown-button">저장된 게시물</button>
+                <button className="dropdown-button">저장한 게시물</button>
                 <button className="dropdown-button" onClick={logout}>
                   로그아웃
                 </button>
@@ -102,14 +102,14 @@ function Univinfopage() {
         )}
       </div>
 
-      <div className="univinfo-line"></div>
+      <div className="labinfo-line"></div>
 
-      <div className='univinfo-content'>
+      <div className='labinfo-content'>
         <ul>
-          {currentItems.map((university, index) => (
+          {currentItems.map((lab, index) => (
             <li key={index}>
               <div>
-                <button onClick={() => toPage(university)}>- {university}</button>
+                <button onClick={() => toPage(lab)}>- {lab}</button>
               </div>
             </li>
           ))}
@@ -126,4 +126,4 @@ function Univinfopage() {
   );
 }
 
-export default Univinfopage;
+export default Labinfopage;

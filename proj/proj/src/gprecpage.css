@@ -11,7 +11,8 @@
 }
 .gpr-header{
     min-width: calc(146px + 2%);
-    width: 100%;
+    margin: 0 auto;
+    width: 99%;
     display: flex;
     max-height: 150px;
     align-items: center;
@@ -19,7 +20,7 @@
     height: calc(100px + (150 - 100) * ((100vw - 320px) / (768 - 320)));
 }
 .gpr-logo{
-    width: 30%;
+    width: 33%;
     max-height: 150px;
     height: auto;
     height: calc(100px + (150 - 100) * ((100vw - 320px) / (768 - 320)));
@@ -35,7 +36,7 @@
     margin-left: 3%;
 }
 .gpr-title{
-    width: 40%;
+    width: 33%;
 }
 .gpr-title > span{
     font-size: 40px;
@@ -47,19 +48,19 @@
     align-items: center;
 }
 .gpr-menu{
-    width: 30%;
+    width: 33%;
+    float: right;
 }
 .gpr-login{
     width: 30%;
     float: right;
-    padding-right: 30px;
 }
 
 .login{
     float: right;
     background: #fff;
     border: 2px solid #000;
-    margin-right: 3%;
+    margin-right: 8px;
     max-width: 98px;
     height: 40px;
     text-align: center;
@@ -96,13 +97,37 @@
 
 .gpr-contents{
    width: 100%;
-   margin-top: 25px;
+   padding-top: 30px;
 }
 
 .gpr-contents div{
     width: 90%;
     margin: 0 auto;
     margin-bottom: 20px;
+}
+.gpr-contents p{
+    font-size: 25px;
+    font-weight: 600;
+}
+.gpr-contents button{
+    font-size: 25px;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+}
+.gpr-contents span{
     font-size: 20px;
     font-weight: 500;
+}
+.gpr-contents button:hover{
+    text-decoration: underline;
+    font-weight: bold;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
 }

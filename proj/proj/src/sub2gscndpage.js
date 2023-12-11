@@ -1,27 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import "./sub2gscndpage.css";
 
 function Sub2gscndpage() {
-    const navigate = useNavigate();
-    const [selectedMajor, setSelectedMajor] = useState('');
-    const [selectedLocation, setSelectedLocation] = useState('');
-    const [selectedField, setSelectedField] = useState('');
-  
-    const handleRecommendation = () => {
-      if (selectedField === 'Graduateschool') {
-        // Navigate to a.js
-        navigate('/gsrecpage');
-      } else if (selectedField === 'professor') {
-        // Navigate to b.js
-        navigate('/gprecpage');
-      } else if (selectedField === 'gp') {
-        // Navigate to b.js
-        navigate('/grrecpage');
-      }
-    };
-  
+  const navigate = useNavigate();
+  // const [selectedMajor, setSelectedMajor] = useState('');
+  // const [selectedLocation, setSelectedLocation] = useState('');
+  // const [selectedField, setSelectedField] = useState('');
+  const [selectedResearch, setSelectedResearch] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedStudent, setSelectedStudent] = useState('');
+  const [selectedLabSize, setSelectedLabSize] = useState('');
+  const [selectedYearPriority, setSelectedYearPriority] = useState('');
+  const [selectedStudentPriority, setSelectedStudentPriority] = useState('');
+  const [selectedLabSizePriority, setSelectedLabSizePriority] = useState('');
+
+  const handleRecommendation = () => {
+    // if (selectedField === 'Graduateschool') {
+    //   // Navigate to a.js
+    //   navigate('/gsrecpage');
+    // } else if (selectedField === 'professor') {
+    //   // Navigate to b.js
+    //   // navigate('/gprecpage');
+    // } else if (selectedField === 'gp') {
+    //   // Navigate to b.js
+    //   navigate('/grrecpage');
+    // }
+    navigate('/gprecpage', { //다음페이지로 전달
+      state: {
+        research: `${selectedResearch}`,
+        year: `${selectedYear}`,
+        student: `${selectedStudent}`,
+        labsize: `${selectedLabSize}`,
+        yearP: `${selectedYearPriority}`,
+        studentP: `${selectedStudentPriority}`,
+        labsizeP: `${selectedLabSizePriority}`,
+      },
+    });
+  };
+  useEffect(() => {
+    console.log('Selected Research:', selectedResearch);
+    console.log('Selected Year:', selectedYear);
+    console.log('Selected Student:', selectedStudent);
+    console.log('Selected LabSize:', selectedLabSize);
+    console.log('Selected YearPriority:', selectedYearPriority);
+    console.log('Selected StudentPriority:', selectedStudentPriority);
+    console.log('Selected LabSizePriority:', selectedLabSizePriority);
+  }, [selectedResearch, selectedYear, selectedStudent, selectedLabSize, selectedYearPriority, selectedStudentPriority, selectedLabSizePriority]);
+
     return (
       <div className="sub2-gscndpage">
         <div className="sub2-gscnd-box">
@@ -34,7 +61,7 @@ function Sub2gscndpage() {
           <div className='sub2-select-form'>
             <div className="sub2-select-major">
             <span>연구하고 싶은 분야> </span>
-            <select className="options" required>
+            <select className="field" required onChange={(e) => setSelectedResearch(e.target.value)}>
               <option disabled selected hidden>전공분야선택(필수)</option>
               <option value="SIGACCESS">SIGACCESS(접근 가능한 컴퓨팅)</option>
               <option value="SIGACT">SIGACT(알고리즘 및 계산 이론)</option>
@@ -78,49 +105,58 @@ function Sub2gscndpage() {
           </div>
             <div className="sub2-select-year">
               <span>교수 연차> </span>
-              <select name="options">
+              <select className="options" onChange={(e) => setSelectedYear(e.target.value)}>
                 <option disabled selected hidden>교수연차선택(선택)</option>
-                  <option value="1993">1993년도 이전부터(31년차 이상)</option>
-                  <option value="2003">1994년도~2003년도(21~30년차)</option>
-                  <option value="2013">2004년도~2013년도(11~20년차)</option>
+                  <option value="1984">1993년도 이전부터(31년차 이상)</option>
+                  <option value="1994">1994년도~2003년도(21~30년차)</option>
+                  <option value="2004">2004년도~2013년도(11~20년차)</option>
                   <option value="2014"> 2014년도 이후부터(10년차이하)</option>
               </select>
               <div className='lab2-Priority'>
               <span>우선순위> </span> 
-              <input type="number" name="lab2-year-priority" />
+              <input type="number" name="lab2-year-priority" onChange={(e) => setSelectedYearPriority(e.target.value)}/>
             </div>
             </div>
             <div className="sub2-select-student">
               <span>교수 담당 학생수> </span>
-              <select className="options">
-                <option disabled selected hidden>연구실규모선택(선택)</option>
-                  <option value="5">5명 이하</option>
-                  <option value="10">6명~10명</option>
+              <select className="options" onChange={(e) => setSelectedStudent(e.target.value)}>
+                <option >교수담당학생수선택(선택)</option>
+                  <option value="1">5명 이하</option>
+                  <option value="6">6명~10명</option>
                   <option value="11">11명 이상</option>
               </select>
               <div className='lab2-Priority'>
               <span>우선순위> </span> 
-              <input type="number" name="lab2-student-priority" />
+              <input type="number" name="lab2-student-priority" onChange={(e) => setSelectedStudentPriority(e.target.value)}/>
             </div>
             </div>
             <div className="sub2-select-labsize">
               <span>연구실 규모> </span>
-              <select className="options">
-                <option disabled selected hidden>연구실규모선택(선택)</option>
-                  <option value="10">10명 이하</option>
-                  <option value="20">11명~20명</option>
-                  <option value="30">21명~30명</option>
+              <select className="options" onChange={(e) => setSelectedLabSize(e.target.value)}>
+                <option >연구실규모선택(선택)</option>
+                  <option value="1">10명 이하</option>
+                  <option value="11">11명~20명</option>
+                  <option value="21">21명~30명</option>
                   <option value="31">31명 이상</option>
               </select>
               <div className='lab2-Priority'>
               <span>우선순위> </span> 
-              <input type="number" name="lab2-labsize-priority" />
+              <input type="number" name="lab2-labsize-priority" onChange={(e) => setSelectedLabSizePriority(e.target.value)}/>
             </div>
             </div>
           </div>
-          <Link to='/gprecpage' className="select-button" onClick={handleRecommendation}>
-          <span className="select-button-text">추천 결과 보기</span>
-          </Link>
+          <Link to='/gprecpage' className="select-button" onClick={(e) => { 
+  e.preventDefault(); 
+  // Check if a year is selected before calling handleRecommendation
+  if (selectedResearch) {
+    handleRecommendation();
+  } else {
+    // Optionally, you can provide feedback to the user that a year needs to be selected.
+    console.log('필수 항목 선택해 주세요.');
+  }
+}}>
+  <span className="select-button-text">추천 결과 보기</span>
+</Link>
         </div>
       </div>
   );

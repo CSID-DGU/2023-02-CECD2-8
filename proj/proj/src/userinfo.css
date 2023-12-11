@@ -1,0 +1,116 @@
+/* userinfo.css */
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    
+    color: white;
+  }
+  
+  /* User dropdown styles */
+  .user-dropdown {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .menu-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    
+  }
+
+  .dropdown-content {
+    position: absolute;
+    right: 0;
+    margin-top: 50px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .dropdown-button {
+    margin-bottom: 5px;
+    padding: 8px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Login styles */
+  .login {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .login-text {
+    font-weight: bold;
+  }
+  
+  /* Logo and menu-icon styles specific to Userinfo component */
+  .userinfo-logo {
+    text-decoration: none;
+  }
+  
+  .userinfo-logoimg {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .userinfo-menu-icon {
+    /* Add specific styles for menu-icon in Userinfo */
+  }
+  
+  /* All2 container styles */
+  .all2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  /* User info item styles */
+  .user-info-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 400px; /* Adjust width as needed */
+    text-align: left;
+  }
+  
+  /* Change button styles */
+  .change {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .change:hover {
+    background-color: #45a049;
+  }
+  
+  /* Additional styles as needed */
+  

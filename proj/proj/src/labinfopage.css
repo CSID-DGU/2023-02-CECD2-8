@@ -1,4 +1,4 @@
-.serviceinfopage{
+.labinfopage{
     height: 100%;
     margin: 0 auto;
     padding: 0;
@@ -9,7 +9,7 @@
     display: block;
     flex-direction: column;
 }
-.si-header{
+.labinfo-header{
     min-width: calc(146px + 2%);
     margin: 0 auto;
     width: 99%;
@@ -19,7 +19,7 @@
     box-sizing: border-box;
     height: calc(100px + (150 - 100) * ((100vw - 320px) / (768 - 320)));
 }
-.si-logo{
+.labinfo-logo{
     width: 33%;
     max-height: 150px;
     height: auto;
@@ -29,16 +29,16 @@
     align-items: center;
     box-sizing: border-box;
 }
-.si-logoimg{
+.labinfo-logoimg{
     max-width: 250px;
     width: 90%;
     height: auto;
     margin-left: 3%;
 }
-.si-title{
+.labinfo-title{
     width: 33%;
 }
-.si-title-text{
+.labinfo-title-text{
     font-size: 40px;
     padding-top: 10px;
     display: flex;
@@ -47,43 +47,48 @@
     justify-content: center;
     align-items: center;
 }
-.si-line{
+.labinfo-line{
     margin: 0 auto;
     width: 99%;
     height: 2px; /* 선의 높이 조절 */
     background-color: black; /* 검정색 설정 */
 }
-
-.si-service{
+.labinfo-content{
     width: 90%;
     height: auto;
     margin: 0 auto;
     display: block;
     padding-top: 30px;
 }
-.si-service1, .si-service2 {
-    width: 100%;
-    margin: 0 auto;
+.labinfo-content ul {
+    list-style-type: none;
 }
-.info1, .info2{
-    width: 100%;
+.labinfo-content li{
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+.labinfo-content li button {
+    background-color:white;
+    border: none;
+    font-size: 18px;
+  }
+  
+.labinfo-content li button:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+.pagination{
+    width: 90%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-bottom: 100px;
 }
-.info1 > img, .info2 > img {
-    width: 32%;
-    border-radius: 3px;
-    border: 2px solid gray;
-    margin: 0 auto;
-    margin: 2px;
+.pagination span {
+    font-size: 16px;
+    margin-right: 10px;
 }
-.si-service1 h2, .si-service2 h2{
-    font-size: 25px;
-    font-weight: 700;
-}
-.si-service1 p, .si-service2 p {
-    font-size: 20px;
-    font-weight: 500;
+.pagination span:hover{
+    text-decoration: underline;
+    font-weight: bold;
 }

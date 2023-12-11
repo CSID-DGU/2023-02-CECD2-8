@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import logo from './logo.png';
-import './signuppage.css';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./changePage.css"; // Make sure to create the corresponding CSS file
 
-function Signuppage() {
-  const navigate = useNavigate(); 
+function ChangePage() {
+  const navigate = useNavigate();
+  const [userID, setUserID] = useState("");
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -25,58 +25,48 @@ function Signuppage() {
     console.log(formData);
   };
 
-  // ...
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const queryParams = new URLSearchParams(formData).toString();
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
+    const userID = localStorage.getItem("userID");
+    setUserID(userID);
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      username: userID
+    }));
+  }, [userID]);
 
-  try {
-    const response = await fetch(`http://3.38.161.125/signUp.php?${queryParams}`, {
-      method: 'GET',
-    });
 
-    if (response.ok) {
-      const data = await response.json();   
-      if (data.message === 'Data received and user registered successfully') {
-        alert('회원 가입 성공！'); 
-        navigate('/loginpage');
-      } else if (data.message ==='UserID already exists') {
-        
-        alert('아이디가 이미 존재합니다. 다른 아이디를 선택하십시오.');
-      } else {
-        
-        alert('알 수 없는 오류가 발생했습니다. 나중에 다시 시도하십시오.');
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    const queryParams = new URLSearchParams(formData).toString();
+    alert(queryParams)
+    try {
+      const response = await fetch(`http://3.38.161.125/updataUserInfo.php?${queryParams}`, {
+        method: "GET",
+      });
+      if (response.ok) {
+        const data = await response.json();   
+        if (data.message==='User data updated successfully') {
+          alert('수정 성공！'); 
+          navigate('/');
+        } else {
+          alert("Failed to update user information");
+        }
       }
-    } else {
-      console.error('Error sending data:', response.status);
-      
+    } catch (error) {
+      console.error('Error sending data:', error);
     }
-  } catch (error) {
-    console.error('Error sending data:', error);
-  }
-};
-// ...
+  };
 
 
 
   return (
-    <div className="signuppage">
-      <div className="signup-box">
-        <form className="signup-form" onSubmit={handleSubmit}>
-          <Link to='/' style={{ textDecoration: "none" }} onClick={() => navigate('/mainpage')}>
-            <img src={logo} className="signup-logoimg" alt="logo" />
-          </Link>
-          <h1 className="signup-h1">회원가입</h1>
-          <div className="signup-line"></div>
-          <div className="su-form">
-          <input
-            type="text"
-            name="username"
-            placeholder="아이디"
-            className="signup-id"
-            onChange={handleChange}
-            required
-          />
+    <div className="changepage">
+      <h2>개인 정보 수정</h2>
+      <label>UserID :    {userID}</label>
+     
+      <form onSubmit={handleSubmit}>
+    
           <input
             type="password"
             name="password"
@@ -157,13 +147,12 @@ const handleSubmit = async (e) => {
               />
               <label>외국인</label>
             </div>
-          </div>
-          </div>
-          <button type="submit" className="signup-text">가입하기</button>
-        </form>
-      </div>
+            </div>
+            
+        <button type="submit" >저장</button>
+      </form>
     </div>
   );
 }
 
-export default Signuppage;
+export default ChangePage;

@@ -15,7 +15,7 @@ function Srlabpage() {
   
   const fetchDataFromDatabase = (dataToQuery) => {
     // 使用 dataToQuery 作为查询参数进行 GET 请求
-    fetch(`http://43.202.99.112/labsearch.php?query=${dataToQuery}`)
+    fetch(`http://3.38.161.125/labsearch.php?query=${dataToQuery}`)
       .then((response) => response.json())
       .then((data) => {
         setSearchResults(data); // 更新查询结果的状态
@@ -76,7 +76,7 @@ function Srlabpage() {
         </div>
 
         {isLoggedIn ? (
-          <div className="user-dropdown">
+          <div className="sl-user-dropdown">
             <div className="menu-icon" onClick={toggleDropdown}>
               <div className="bar"></div>
               <div className="bar"></div>
@@ -119,7 +119,7 @@ function Srlabpage() {
             <p>연구실설명></p>
             <span>{lab.LabDescription}</span>
             <p>연구실사이트></p>
-            <span>{lab.LabWebsite}</span>
+            <span><a href={lab.LabWebsite}>{lab.LabWebsite}</a></span>
             <p>연구분야></p>
             <span>{lab.LabKeywordResearchField}</span>
             <p>연구실주소></p>
@@ -127,11 +127,14 @@ function Srlabpage() {
             <p>연구실이메일></p>
             <span>{lab.LabEmail}</span>
             <p>연구실전화번호></p>
-            <span>{lab.LabPhone}</span>
+            {lab.LabPhone ? (
+          <span>{lab.LabPhone}</span>
+        ) : (
+          <span>No result</span>
+        )}
+    
           </div></>
       )}
-      
-
     </div>
   );
 }

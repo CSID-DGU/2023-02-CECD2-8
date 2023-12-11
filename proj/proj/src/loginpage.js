@@ -4,11 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import './loginpage.css';
 
 function Loginpage() {
+  
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
       username: '',
       password: '',
   });
+  const[userID, setuserID]= useState('');
   
     const handleChange = (e) => {
       const { name, value } = e.target;
@@ -24,7 +26,7 @@ function Loginpage() {
     const queryParams = new URLSearchParams(formData).toString();
     
     try {
-      const response = await fetch(`http://43.202.99.112/Login.php?${queryParams}`, {
+      const response = await fetch(`http://3.38.161.125/Login.php?${queryParams}`, {
          method: 'GET',  
       });
   
@@ -34,6 +36,7 @@ function Loginpage() {
           alert('로그인 성공！'); 
           
           localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('userID',queryParams);
           navigate('/');
         } else if (data.message ==='Invalid username or password') {
           alert('알 수 없는 아이디거나 틀린 비밀번호입니다.다시 입력하세요!');
@@ -56,6 +59,7 @@ function Loginpage() {
   };
   
   return (
+    
     <div className="loginpage">
       <div className="login-header"></div>
       <div className="login-box">

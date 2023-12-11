@@ -39,7 +39,7 @@ function Srgsrecpage() {
   };
   const fetchDataFromDatabase1 = (dataToQuery) => {
     // 使用 dataToQuery 作为查询参数进行 GET 请求
-    fetch(`http://43.202.99.112/search1.php?query=${dataToQuery}`)
+    fetch(`http://3.38.161.125/search1.php?query=${dataToQuery}`)
       .then((response) => response.json())
       .then((data) => {
         setUniversity(data); // 更新查询结果的状态
@@ -50,7 +50,7 @@ function Srgsrecpage() {
   };
   const fetchDataFromDatabase = (dataToQuery) => {
     // 使用 dataToQuery 作为查询参数进行 GET 请求
-    fetch(`http://43.202.99.112/search.php?query=${dataToQuery}`)
+    fetch(`http://3.38.161.125/search.php?query=${dataToQuery}`)
       .then((response) => response.json())
       .then((data) => {
         setSearchResults(data); // 更新查询结果的状态
@@ -89,13 +89,11 @@ function Srgsrecpage() {
         >
           <img src={logo} className="sg-logoimg" alt="logo" />
         </Link>
-
         <div className="sg-title">
           <span>대학원 정보</span>
         </div>
-
         {isLoggedIn ? (
-          <div className="user-dropdown">
+          <div className="sg-user-dropdown">
             <div className="menu-icon" onClick={toggleDropdown}>
               <div className="bar"></div>
               <div className="bar"></div>
@@ -125,39 +123,41 @@ function Srgsrecpage() {
           </div>
         )}
       </div>
-
       <div className="sg-line"></div>
 
       <div className="sg-univ">
         {University.map((school, index) => (
           <div className="title" key={index}>
-            <div className="university_logo">
-              <img src={`data:image/png;base64, ${school.UniversityLogo}`} alt="" />
-            </div>
             <div className="university_name">{school.UniversityName}</div>
           </div>
         ))}
       </div>
 
       <div className="sg-contents">
-      
+        
         <div className="sg-basic-info">
           <h2>학교 기본 정보</h2>
           {University.map((school, index) => (
-          <div key={index}><p>대학 사이트></p><a href={addHttpPrefix(school.UniversitySite)} target="_blank" rel="noreferrer">
+          <div className="sg-bi" key={index}>
+            <p>대학 사이트></p>
+            <a href={addHttpPrefix(school.UniversitySite)} target="_blank" rel="noreferrer">
               {school.UniversitySite}
-            </a><p>주소></p><span>{school.State},</span><span> {school.Address}</span><p>순위></p><span>{school.Ranking}</span>
-            <p>연락처></p><span>{school.tel}</span>
-            </div>
+            </a>
+            <p>주소></p>
+            <span>{school.State},</span><span> {school.Address}</span><p>순위></p><span>{school.Ranking}</span>
+            <p>연락처></p>
+            <span>{school.Tel}</span>
+          </div>
           ))}
         </div>
+      
         
         <div className="sg-major1">
           <h2>학교 전공 정보</h2>
           {searchResults.map((major, index)=>(
             <>
           <div className="sg-msub1" >
-            <p>전공분야{index}></p>
+            <p>전공분야{index + 1}></p>
             <span>{major.MajorName}</span>
             <p>위치</p>
             <span>{major.Adress}</span>
@@ -169,17 +169,14 @@ function Srgsrecpage() {
             <span>{major.Email}</span>
             <p>입학요건사이트></p>
             <a href={addHttpPrefix(major.AdmissionRequirementsLink)} target="_blank" rel="noreferrer">
-  {major.AdmissionRequirementsLink}
-</a>
-            
+                {major.AdmissionRequirementsLink}
+            </a>
           </div>
-          
-           
           <div className="sg-msub2">
             <p>입학신청마감일></p>
             <a href={addHttpPrefix(major.ApplicationDeadline)} target="_blank" rel="noreferrer">
-  {major.ApplicationDeadline}
-</a>
+                {major.ApplicationDeadline}
+            </a>
             <p>입학신청비></p>
             <span>{major.ApplicationFee}</span>
             <p>등록금></p>

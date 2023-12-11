@@ -70,7 +70,7 @@
     align-items: center; /* 수직 가운데 정렬 */
 }
 .select-form span {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     width: 30%; /* span 요소가 50%의 너비를 가지도록 설정 */
     text-align: right; /* span 요소를 오른쪽으로 정렬 */
@@ -79,12 +79,12 @@
 .select-form select {
     width: 65%; /* select 요소가 50%의 너비를 가지도록 설정 */
     height: 35px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 @media screen and (max-width: 600px) {
     .select-form span, .select-form select {
-        font-size: 17px;
+        font-size: 16px;
     }
     
 }

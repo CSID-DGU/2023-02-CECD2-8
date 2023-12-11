@@ -72,7 +72,7 @@
 }
 .sub3-select-major span, .sub3-select-location span, .sub3-select-ranking span, .sub3-select-expenses span
 , .sub3-select-year span, .sub3-select-student span, .sub3-select-labsize span, .sub3-select-gre span{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     width: 25%; /* span 요소가 50%의 너비를 가지도록 설정 */
     text-align: left; /* span 요소를 오른쪽으로 정렬 */
@@ -83,7 +83,7 @@
 .sub3-select-gre select{
     width: 53%; /* select 요소가 50%의 너비를 가지도록 설정 */
     height: 35px;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 7px;
     border-width: 2px;
     border-color: black;
@@ -100,14 +100,14 @@
 }
 .lab3-Priority span {
     width: 70%;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     padding-left: 10px;
 }
 .lab3-Priority input {
     width: 30%; /* 변경된 너비 */
     height: 35px;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 7px;
     border-width: 2px;
     border-color: black;
@@ -135,7 +135,7 @@
 .sub3-input-form1 input, .sub3-input-form2 input {
     width: 52%; /* select 요소가 50%의 너비를 가지도록 설정 */
     height: 30px;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom:0px;
     border-radius: 7px;
     border-width: 2px;
@@ -144,10 +144,10 @@
 
 @media screen and (max-width: 600px) {
     .sub3-select-form span, .sub3-select-form select {
-        font-size: 17px;
+        font-size: 16px;
     }
     .sub3-input-form1 span, .sub3-input-form1 input, .sub3-input-form2 span, .sub3-input-form2 input {
-        font-size: 17px;
+        font-size: 16px;
     }
     
 }

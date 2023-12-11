@@ -1,26 +1,83 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import "./sub3gscndpage.css";
 
 function Sub3gscndpage() {
   const navigate = useNavigate();
-  const [selectedMajor, setSelectedMajor] = useState('');
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const [selectedField, setSelectedField] = useState('');
+  // const [selectedMajor, setSelectedMajor] = useState('');
+  // const [selectedLocation, setSelectedLocation] = useState('');
+  // const [selectedField, setSelectedField] = useState('');
+  const [selectedResearch, setSelectedResearch] = useState('');
+  const [selectedStates, setSelectedStates] = useState('');
+  const [selectedRanking, setSelectedRanking] = useState('');
+  const [selectedCost, setSelectedCost] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedStudent, setSelectedStudent] = useState('');
+  const [selectedLabSize, setSelectedLabSize] = useState('');
+  const [selectedGPA, setSelectedGPA] = useState('');
+  const [selectedGRE, setSelectedGRE] = useState('');
+  const [selectedTOEFL, setSelectedTOEFL] = useState('');
+  const [selectedIELTS, setSelectedIELTS] = useState('');
+  const [selectedPTE, setSelectedPTE] = useState('');
+  const [selectedRankingPriority, setSelectedRankingPriority] = useState('');
+  const [selectedCostPriority, setSelectedCostPriority] = useState('');
+  const [selectedYearPriority, setSelectedYearPriority] = useState('');
+  const [selectedStudentPriority, setSelectedStudentPriority] = useState('');
+  const [selectedLabSizePriority, setSelectedLabSizePriority] = useState('');
 
   const handleRecommendation = () => {
-    if (selectedField === 'Graduateschool') {
-      // Navigate to a.js
-      navigate('/gsrecpage');
-    } else if (selectedField === 'professor') {
-      // Navigate to b.js
-      navigate('/gprecpage');
-    } else if (selectedField === 'gp') {
-      // Navigate to b.js
-      navigate('/grrecpage');
-    }
+    // if (selectedField === 'Graduateschool') {
+    //   // Navigate to a.js
+    //   navigate('/gsrecpage');
+    // } else if (selectedField === 'professor') {
+    //   // Navigate to b.js
+    //   navigate('/gprecpage');
+    // } else if (selectedField === 'gp') {
+    //   // Navigate to b.js
+    //   navigate('/grrecpage');
+    // }
+    navigate('/gsprecpage', { //다음페이지로 전달
+      state: {
+        research: `${selectedResearch}`,
+        states: `${selectedStates}`,
+        ranking: `${selectedRanking}`,
+        cost: `${selectedCost}`,
+        year: `${selectedYear}`,
+        student: `${selectedStudent}`,
+        labsize: `${selectedLabSize}`,
+        gpa: `${selectedGPA}`,
+        gre: `${selectedGRE}`,
+        toefl: `${selectedTOEFL}`,
+        ielts: `${selectedIELTS}`,
+        pte: `${selectedPTE}`,
+        rankingP: `${selectedRankingPriority}`,
+        costP: `${selectedCostPriority}`,
+        yearP: `${selectedYearPriority}`,
+        studentP: `${selectedStudentPriority}`,
+        labsizeP: `${selectedLabSizePriority}`,
+      },
+    });
   };
+  useEffect(() => {
+    console.log('Selected Research:', selectedResearch);
+    console.log('Selected States:', selectedStates);
+    console.log('Selected Ranking:', selectedRanking);
+    console.log('Selected Cost:', selectedCost);
+    console.log('Selected Year:', selectedYear);
+    console.log('Selected Student:', selectedStudent);
+    console.log('Selected LabSize:', selectedLabSize);
+    console.log('Selected GPA:', selectedGPA);
+    console.log('Selected GRE:', selectedGRE);
+    console.log('Selected TOEFL:', selectedTOEFL);
+    console.log('Selected IELTS:', selectedIELTS);
+    console.log('Selected PTE:', selectedPTE);
+    console.log('Selected RankingPriority:', selectedRankingPriority);
+    console.log('Selected CostPriority:', selectedCostPriority);
+    console.log('Selected YearPriority:', selectedYearPriority);
+    console.log('Selected StudentPriority:', selectedStudentPriority);
+    console.log('Selected LabSizePriority:', selectedLabSizePriority);
+  }, [selectedResearch, selectedStates, selectedRanking, selectedCost, selectedYear, selectedStudent, selectedLabSize, selectedGPA, selectedGRE, selectedTOEFL, selectedIELTS, selectedPTE, selectedRankingPriority, selectedCostPriority, selectedYearPriority, selectedStudentPriority, selectedLabSizePriority]);
 
   return (
     <div className="sub3-gscndpage">
@@ -34,7 +91,7 @@ function Sub3gscndpage() {
         <div className='sub3-select-form'>
           <div className="sub3-select-major">
             <span>연구하고 싶은 분야> </span>
-            <select className="options" required>
+            <select className="options" required onChange={(e) => setSelectedResearch(e.target.value)}>
               <option disabled selected hidden>전공분야선택(필수)</option>
               <option value="SIGACCESS">SIGACCESS(접근 가능한 컴퓨팅)</option>
               <option value="SIGACT">SIGACT(알고리즘 및 계산 이론)</option>
@@ -78,10 +135,10 @@ function Sub3gscndpage() {
           </div>
           <div className="sub3-select-location">
             <span>위치> </span>
-            <select className="options" >
+            <select className="options" onChange={(e) => setSelectedStates(e.target.value)}>
               <option disabled selected hidden>위치선택(선택)</option>
               <optgroup label="Western" >
-                <option value="Arizona" ㅡ>Arizona</option>
+                <option value="Arizona" >Arizona</option>
                 <option value="California">California</option>
                 <option value="Colorado">Colorado</option>
                 <option value="Hawaii">Hawaii</option>
@@ -142,14 +199,11 @@ function Sub3gscndpage() {
                 <option value="Puerto Rico">Puerto Rico</option>
               </optgroup>
             </select>
-            <div className='lab3-Priority'>
-              <span>우선순위> </span> 
-              <input type="number" name="lab3-location-priority" />
-            </div>
+            
           </div>
           <div className="sub3-select-ranking">
             <span>순위> </span>
-            <select className="options">
+            <select className="options" onChange={(e) => setSelectedRanking(e.target.value)}>
               <option disabled selected hidden>순위선택(선택)</option>
                 <option value="10">10위 이내</option>
                 <option value="20">20위 이내</option>
@@ -159,63 +213,63 @@ function Sub3gscndpage() {
             </select>
             <div className='lab3-Priority'>
               <span>우선순위> </span> 
-              <input type="number" name="lab3-ranking-priority" />
+              <input type="number" name="lab3-ranking-priority" onChange={(e) => setSelectedRankingPriority(e.target.value)}/>
             </div>
           </div>
           <div className="sub3-select-expenses">
             <span>비용> </span>
-            <select className="options">
+            <select className="options" onChange={(e) => setSelectedCost(e.target.value)}>
               <option disabled selected hidden>비용선택(선택)</option>
-                <option value="30,000">30,000달러 이하</option>
-                <option value="50,000">30,000달러 ~ 50,000달러</option>
-                <option value="70,000">50,000달러 ~ 70,000달러</option>
-                <option value="90,000">70,000달러 ~ 90,000달러</option>
-                <option value="90,000">90,000달러 이상</option>
+                <option value="10000">30,000달러 이하</option>
+                <option value="30000">30,000달러 ~ 50,000달러</option>
+                <option value="50000">50,000달러 ~ 70,000달러</option>
+                <option value="70000">70,000달러 ~ 90,000달러</option>
+                <option value="90000">90,000달러 이상</option>
             </select>
             <div className='lab3-Priority'>
               <span>우선순위> </span> 
-              <input type="number" name="lab3-expenses-priority"/>
+              <input type="number" name="lab3-expenses-priority" onChange={(e) => setSelectedCostPriority(e.target.value)}/>
             </div>
           </div>
           <div className="sub3-select-year">
               <span>교수 연차> </span>
-              <select name="options">
+              <select name="options" onChange={(e) => setSelectedYear(e.target.value)}>
                 <option disabled selected hidden>교수연차선택(선택)</option>
-                  <option value="1993">1993년도 이전부터(31년차 이상)</option>
-                  <option value="2003">1994년도~2003년도(21~30년차)</option>
-                  <option value="2013">2004년도~2013년도(11~20년차)</option>
+                  <option value="1984">1993년도 이전부터(31년차 이상)</option>
+                  <option value="1994">1994년도~2003년도(21~30년차)</option>
+                  <option value="2004">2004년도~2013년도(11~20년차)</option>
                   <option value="2014"> 2014년도 이후부터(10년차이하)</option>
               </select>
               <div className='lab3-Priority'>
               <span>우선순위> </span> 
-              <input type="number" name="lab3-year-priority" />
+              <input type="number" name="lab3-year-priority" onChange={(e) => setSelectedYearPriority(e.target.value)}/>
             </div>
             </div>
           <div className="sub3-select-student">
               <span>교수 담당 학생수> </span>
-              <select className="options">
-                <option disabled selected hidden>연구실규모선택(선택)</option>
-                  <option value="5">5명 이하</option>
-                  <option value="10">6명~10명</option>
+              <select className="options" onChange={(e) => setSelectedStudent(e.target.value)}>
+                <option disabled selected hidden>교수담당학생수선택(선택)</option>
+                  <option value="1">5명 이하</option>
+                  <option value="6">6명~10명</option>
                   <option value="11">11명 이상</option>
               </select>
               <div className='lab3-Priority'>
               <span>우선순위> </span> 
-              <input type="number" name="lab3-student-priority" />
+              <input type="number" name="lab3-student-priority" onChange={(e) => setSelectedStudentPriority(e.target.value)}/>
             </div>
             </div>
             <div className="sub3-select-labsize">
               <span>연구실 규모> </span>
-              <select className="options">
+              <select className="options" onChange={(e) => setSelectedLabSize(e.target.value)}>
                 <option disabled selected hidden>연구실규모선택(선택)</option>
-                  <option value="10">10명 이하</option>
-                  <option value="20">11명~20명</option>
-                  <option value="30">21명~30명</option>
+                  <option value="1">10명 이하</option>
+                  <option value="11">11명~20명</option>
+                  <option value="21">21명~30명</option>
                   <option value="31">31명 이상</option>
               </select>
               <div className='lab3-Priority'>
               <span>우선순위> </span> 
-              <input type="number" name="lab3-labsize-priority" />
+              <input type="number" name="lab3-labsize-priority" onChange={(e) => setSelectedLabSizePriority(e.target.value)}/>
             </div>
             </div>
         </div>
@@ -223,14 +277,14 @@ function Sub3gscndpage() {
         <div className="sub3-input-form1">
           <div className="sub3-input-gpa">
             <span>GPA> </span>
-            <input type="number" name="gpa" placeholder="GPA 점수(선택)" className="sub1-gpa" step="0.01"/>
+            <input type="number" name="gpa" placeholder="GPA 점수(선택)" className="sub1-gpa" step="0.01" onChange={(e) => setSelectedGPA(e.target.value)}/>
           </div>
         </div>
 
         <div className='sub3-select-form2'>
           <div className="sub3-select-gre">
             <span>GRE> </span>
-            <select className="options">
+            <select className="options" onChange={(e) => setSelectedGRE(e.target.value)}>
               <option disabled selected hidden>GRE선택(선택)</option>
                 <option value="Required">제출필요</option>
                 <option value="Not Required">제출불필요</option>
@@ -242,19 +296,28 @@ function Sub3gscndpage() {
         <div className="sub3-input-form2">
           <div className="sub3-input-toefl">
             <span>TOEFL> </span>
-            <input type="number" name="TOEFL" placeholder="TOEFL 점수(선택)" className="sub1-toefl" step="0.01"/>
+            <input type="number" name="TOEFL" placeholder="TOEFL 점수(선택)" className="sub1-toefl" step="0.01" onChange={(e) => setSelectedTOEFL(e.target.value)}/>
           </div>
           <div className="sub3-input-ielts">
             <span>IELTS> </span>
-            <input type="number" name="IELTS" placeholder="IELTS 점수(선택)" className="sub1-ielts" step="0.01"/>
+            <input type="number" name="IELTS" placeholder="IELTS 점수(선택)" className="sub1-ielts" step="0.01" onChange={(e) => setSelectedIELTS(e.target.value)}/>
           </div>
           <div className="sub3-input-ielts">
             <span>PTEAcademic> </span>
-            <input type="number" name="PTEAcademic" placeholder="PTEAcademic 점수(선택)" className="sub1-ptea" step="0.01"/>
+            <input type="number" name="PTEAcademic" placeholder="PTEAcademic 점수(선택)" className="sub1-ptea" step="0.01" onChange={(e) => setSelectedPTE(e.target.value)}/>
           </div>
         </div>
         
-        <Link to='/gsprecpage' className="select-button" onClick={handleRecommendation}>
+        <Link to='/gsprecpage' className="select-button" onClick={(e) => {
+          e.preventDefault(); 
+          if (selectedResearch) {
+            handleRecommendation();
+          } else {
+            // Optionally, you can provide feedback to the user that a year needs to be selected.
+            console.log('필수 항목 선택해 주세요.');
+          }
+          
+          }}>
           <span className="select-button-text">추천 결과 보기</span>
         </Link>
       </div>

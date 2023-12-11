@@ -75,7 +75,7 @@
 .sub1-select-major span, .sub1-select-location span, 
 .sub1-select-ranking span, .sub1-select-expenses span,
 .sub1-select-gre span{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     width: 25%; /* span 요소가 50%의 너비를 가지도록 설정 */
     text-align: left; /* span 요소를 오른쪽으로 정렬 */
@@ -86,7 +86,7 @@
 .sub1-select-gre select {
     width: 53%; /* select 요소가 50%의 너비를 가지도록 설정 */
     height: 35px;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 7px;
     border-width: 2px;
     border-color: black;
@@ -101,14 +101,14 @@
 }
 .lab1-Priority span {
     width: 70%;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     padding-left: 10px;
 }
 .lab1-Priority input {
     width: 30%; /* 변경된 너비 */
     height: 35px;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 7px;
     border-width: 2px;
     border-color: black;
@@ -127,7 +127,7 @@
     align-items: center; /* 수직 가운데 정렬 */
 }
 .sub1-input-form1 span, .sub1-input-form2 span {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     width: 25%; /* span 요소가 50%의 너비를 가지도록 설정 */
     text-align: left; /* span 요소를 오른쪽으로 정렬 */
@@ -136,7 +136,7 @@
 .sub1-input-form1 input, .sub1-input-form2 input {
     width: 52%; /* select 요소가 50%의 너비를 가지도록 설정 */
     height: 30px;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom:0px;
     border-radius: 7px;
     border-width: 2px;
@@ -145,10 +145,10 @@
 
 @media screen and (max-width: 600px) {
     .sub1-select-form span, .sub1-select-form select {
-        font-size: 17px;
+        font-size: 16px;
     }
     .sub1-input-form1 span,.sub1-input-form2 span, .sub1-input-form1 input, .sub1-input-form2 input {
-        font-size: 17px;
+        font-size: 16px;
     }
     
 }
